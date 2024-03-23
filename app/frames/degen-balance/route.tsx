@@ -22,8 +22,6 @@ const handleRequest = frames(async (ctx) => {
         "0x22b2DD2CFEF2018D15543c484aceF6D9B5435863"
     );
 
-    console.log(balanceUpto2Decimals(data["Base God"]));
-
     return {
         image: (
             <div tw="w-full h-full bg-black text-white flex flex-col items-start">

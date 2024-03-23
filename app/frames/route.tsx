@@ -15,9 +15,10 @@ const handleRequest = frames(async (ctx) => {
                 </div>
                 <div tw=" w-full h-full flex flex-col pl-[80px]">
                     <h2>www</h2>
-                    <p tw="text-[#AEAEAE]">
+                    <p tw="text-[#AEAEAE] mr-[120px]">
                         Warpcast Wallet Wrapped is your yearly recap of on-chain
-                        actions. Find out if you are Degen, NotSoDegen, Hibernator or Noob.
+                        actions. Find out if you are Degen, NotSoDegen,
+                        Hibernator or Noob.
                     </p>
                 </div>
             </div>
