@@ -29,15 +29,14 @@ const handleRequest = frames(async (ctx) => {
             <Button action="post" target={{ pathname: "/degen-tips" }}>
                 ← Previous
             </Button>,
-
-            // <Button
-            //     action="post"
-            //     target={{
-            //         pathname: "/next",
-            //     }}
-            // >
-            //     Next frame
-            // </Button>,
+            <Button
+                action="post"
+                target={{
+                    pathname: "/what-bags",
+                }}
+            >
+                Find Bags
+            </Button>,
         ],
     };
 });
