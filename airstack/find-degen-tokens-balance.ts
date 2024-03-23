@@ -31,9 +31,9 @@ type TokenBalances = {
 }
 
 const query = gql`
-query FindDegenTokenBalances {
+query FindDegenTokenBalances($address: Identity) {
     TokenBalances(
-      input: {filter: {owner:{_eq:"0x22b2DD2CFEF2018D15543c484aceF6D9B5435863"}, tokenAddress: {_in: ["0x4ed4E862860beD51a9570b96d89aF5E1B0Efefed","0x0d97F261b1e88845184f678e2d1e7a98D9FD38dE", "0xAC1Bd2486aAf3B5C0fc3Fd868558b082a531B2B4", "0x6921B130D297cc43754afba22e5EAc0FBf8Db75b", "0x7F12d13B34F5F4f0a9449c16Bcd42f0da47AF200"]}, tokenType: {_eq: ERC20}}, blockchain: base}
+      input: {filter: {owner:{_eq:$address}, tokenAddress: {_in: ["0x4ed4E862860beD51a9570b96d89aF5E1B0Efefed","0x0d97F261b1e88845184f678e2d1e7a98D9FD38dE", "0xAC1Bd2486aAf3B5C0fc3Fd868558b082a531B2B4", "0x6921B130D297cc43754afba22e5EAc0FBf8Db75b", "0x7F12d13B34F5F4f0a9449c16Bcd42f0da47AF200"]}, tokenType: {_eq: ERC20}}, blockchain: base}
     ) {
       TokenBalance {
         amount
@@ -48,7 +48,7 @@ query FindDegenTokenBalances {
   }
 `;
 
-export default async function findDegenTokenBalances(identity: string) {
+export default async function findDegenTokenBalances(address: string) {
 
   let balances: any = {
     "Degen": '0',
@@ -60,7 +60,7 @@ export default async function findDegenTokenBalances(identity: string) {
 
     try {
         let response = await fetchQueryWithPagination(gqlToString(query), {
-            address: identity,
+            address
         });
 
         if (response) {
