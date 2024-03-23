@@ -19,8 +19,8 @@ const handleRequest = frames(async (ctx) => {
                         src="https://wrpcd.net/cdn-cgi/image/fit=contain,f=auto,w=168/https%3A%2F%2Fi.imgur.com%2FRYLwxg1.jpg"
                     />
                     <p tw="text-[#AEAEAE] mr-[120px] ml-[40px]">
-                        This past year, you were tipped $DEGEN many time by many
-                        people. However, who tipped the most? Let's find out!
+                        This past year, probably many transactions took place to and fro. 
+                        Let's find out!
                     </p>
                 </div>
             </div>
