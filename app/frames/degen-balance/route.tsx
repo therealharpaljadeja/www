@@ -26,59 +26,44 @@ const handleRequest = frames(async (ctx) => {
 
     return {
         image: (
-            <div tw="flex flex-col items-center justify-center">
-                <div tw="flex items-center justify-center">
-                    <h2>Your Balances</h2>
+            <div tw="w-full h-full bg-black text-white flex flex-col items-start">
+                <div tw="flex w-full">
+                    <div tw="ml-[80px] mt-[100px] border-4 border-[#AEAEAE] w-[50px]"></div>
+                    <div tw="ml-[10px] mt-[100px] border-4 border-[#AEAEAE] w-[50px]"></div>
+                    <div tw="ml-[10px] mt-[100px] border-4 border-[#AEAEAE] w-[50px]"></div>
+                    <div tw="ml-[10px] mt-[100px] border-4 border-[#AEAEAE] w-[50px]"></div>
+                    <div tw="ml-[10px] mt-[100px] border-4 border-white w-[50px]"></div>
                 </div>
-                <div tw="flex items-center justify-center">
-                    <div tw="flex items-center space-x-2">
-                        <img
-                            tw="w-[80px] h-[80px] rounded-full"
-                            src="https://assets.airstack.xyz/image/logo/8453/YJHU8e8eFBKEjHeu1z/w9xfYa2hi8kawEAZ4u8ZLTZENUduCoFOvZWjP+Ru2IEkL/small.png"
-                        />
-                        <h2 tw="pl-[20px]">
-                            {balanceUpto2Decimals(data["Degen"])}
-                        </h2>
+                <div tw=" w-full pt-[50px] h-full flex pl-[80px]">
+                    <div tw="flex flex-col w-[40%]">
+                        <p tw="text-[#AEAEAE] text-[30px]">
+                            $DEGEN is the token you transacted the most. You
+                            have made 34 transactions
+                        </p>
+                        <p tw="text-[#AEAEAE] text-[30px]">
+                            $NORMIE is the token you transacted the most. You
+                            have made 34 transactions
+                        </p>
                     </div>
-                    <div tw="flex pl-[200px] items-center space-x-2">
-                        <img
-                            tw="w-[80px] h-[80px] rounded-full"
-                            src="https://assets.airstack.xyz/image/logo/8453/Kwt1lrnu48hVr84kcFMH3U6IRPPX0ekAfxGPEWIEzUomCanfgi/y8yYBFMCjnlrJ/small.png"
-                        />
-                        <h2 tw="pl-[20px]">
-                            {balanceUpto2Decimals(data["Base God"])}
-                        </h2>
-                    </div>
-                </div>
-                <div tw="flex items-center justify-center">
-                    <div tw="flex items-center space-x-2">
-                        <img
-                            tw="w-[80px] h-[80px] rounded-full"
-                            src="https://assets.airstack.xyz/image/logo/8453/Q1I4YqH38O2uOFFg0u68YOhMaaDDBiLFx7p5rNSO9L1PHi4VADVMl8OMt/uDNEUF/small.png"
-                        />
-                        <h2 tw="pl-[20px]">
-                            {balanceUpto2Decimals(data["Normie"])}
-                        </h2>
-                    </div>
-                    <div tw="flex pl-[200px] items-center space-x-2">
-                        <img
-                            tw="w-[80px] h-[80px] rounded-full"
-                            src="https://assets.airstack.xyz/image/logo/8453/4SB8Hx1kdOpRV6XWhno0M2KPp5uA9Ey77a//PsfDhBrI4AI+HXHM9FBr33iQ2eio/small.jpg"
-                        />
-                        <h2 tw="pl-[20px]">
-                            {balanceUpto2Decimals(data["Toshi"])}
-                        </h2>
-                    </div>
-                </div>
-                <div tw="flex items-center justify-center">
-                    <div tw="flex items-center space-x-2">
-                        <img
-                            tw="w-[80px] h-[80px] rounded-full"
-                            src="https://assets.airstack.xyz/image/logo/8453/UFrxiWJtVYLmOG7Qc3XlihM66Za8OjuIJM0Izlqkg2hiBMGCI4zCI+1s1bQ2sRKk/small.png"
-                        />
-                        <h2 tw="pl-[20px]">
-                            {balanceUpto2Decimals(data["doginme"])}
-                        </h2>
+                    <div tw="flex flex-col border-2 w-[500px] h-[70%] mb-[40px] ml-[40px] mr-[70px] border-dashed border-white">
+                        <div tw="flex items-center pl-[40px]">
+                            <img
+                                tw="w-[50px] h-[50px] rounded-full"
+                                src="https://assets.airstack.xyz/image/logo/8453/YJHU8e8eFBKEjHeu1z/w9xfYa2hi8kawEAZ4u8ZLTZENUduCoFOvZWjP+Ru2IEkL/small.png"
+                            />
+                            <p tw="pl-[20px] text-[30px]">
+                                {balanceUpto2Decimals(data["Degen"])}
+                            </p>
+                        </div>
+                        <div tw="flex items-center pl-[40px]">
+                            <img
+                                tw="w-[50px] h-[50px] rounded-full"
+                                src="https://assets.airstack.xyz/image/logo/8453/Kwt1lrnu48hVr84kcFMH3U6IRPPX0ekAfxGPEWIEzUomCanfgi/y8yYBFMCjnlrJ/small.png"
+                            />
+                            <h2 tw="pl-[20px] text-[30px]">
+                                {balanceUpto2Decimals(data["Base God"])}
+                            </h2>
+                        </div>
                     </div>
                 </div>
             </div>
