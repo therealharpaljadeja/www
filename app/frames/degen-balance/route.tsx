@@ -1,78 +1,120 @@
 import { Button } from "frames.js/next";
 import { frames } from "../frames";
 import findDegenTokenBalances from "@/airstack/find-degen-tokens-balance";
-
-function balanceUpto2Decimals(str: string) {
-    // Regular expression to match numbers with potentially more than two decimal places
-    const regex = /^(\d+(?:\.\d{0,2})?)\d*$/;
-
-    // Check if the string matches the regular expression
-    if (regex.test(str)) {
-        // Extract the matched part with up to two decimal places
-        const truncatedString = str.replace(regex, "$1");
-        return truncatedString;
-    } else {
-        // Handle invalid input
-        return "Invalid number";
-    }
-}
+import { balanceUpto2Decimals } from "@/utils";
 
 const handleRequest = frames(async (ctx) => {
-    let data = await findDegenTokenBalances(
-        "0x22b2DD2CFEF2018D15543c484aceF6D9B5435863"
-    );
+    let data;
 
-    return {
-        image: (
-            <div tw="w-full h-full bg-black text-white flex flex-col items-start">
-                <div tw="flex w-full">
-                    <div tw="ml-[80px] mt-[100px] border-4 border-[#AEAEAE] w-[50px]"></div>
-                    <div tw="ml-[10px] mt-[100px] border-4 border-[#AEAEAE] w-[50px]"></div>
-                    <div tw="ml-[10px] mt-[100px] border-4 border-[#AEAEAE] w-[50px]"></div>
-                    <div tw="ml-[10px] mt-[100px] border-4 border-[#AEAEAE] w-[50px]"></div>
-                    <div tw="ml-[10px] mt-[100px] border-4 border-white w-[50px]"></div>
+    if (ctx.message) {
+        let fid = ctx.message.requesterFid;
+        data = await findDegenTokenBalances(`fc_fid:${fid}`);
+    }
+    if (data)
+        return {
+            image: (
+                <div tw="w-full h-full bg-black text-white flex flex-col items-start">
+                    <div tw="flex w-full">
+                        <div tw="ml-[80px] mt-[100px] border-4 border-[#AEAEAE] w-[50px]"></div>
+                        <div tw="ml-[10px] mt-[100px] border-4 border-[#AEAEAE] w-[50px]"></div>
+                        <div tw="ml-[10px] mt-[100px] border-4 border-[#AEAEAE] w-[50px]"></div>
+                        <div tw="ml-[10px] mt-[100px] border-4 border-[#AEAEAE] w-[50px]"></div>
+                        <div tw="ml-[10px] mt-[100px] border-4 border-white w-[50px]"></div>
+                    </div>
+                    <div tw=" w-full h-full flex flex-col pl-[80px]">
+                        <h2 tw="text-[40px]">Meme coin balance:</h2>
+                        <div tw="flex flex-col h-[70%] mb-[40px] mr-[70px]">
+                            <div tw="flex justify-center">
+                                <div tw="flex items-center">
+                                    <img
+                                        tw="w-[80px] h-[80px] rounded-full"
+                                        src="https://assets.airstack.xyz/image/logo/8453/YJHU8e8eFBKEjHeu1z/w9xfYa2hi8kawEAZ4u8ZLTZENUduCoFOvZWjP+Ru2IEkL/small.png"
+                                    />
+                                    <p tw="pl-[20px] text-[30px]">
+                                        {balanceUpto2Decimals(data["Degen"])}
+                                    </p>
+                                </div>
+                                <div tw="flex items-center ml-[80px]">
+                                    <img
+                                        tw="w-[80px] h-[80px] rounded-full"
+                                        src="https://assets.airstack.xyz/image/logo/8453/Kwt1lrnu48hVr84kcFMH3U6IRPPX0ekAfxGPEWIEzUomCanfgi/y8yYBFMCjnlrJ/small.png"
+                                    />
+                                    <h2 tw="pl-[20px] text-[30px]">
+                                        {balanceUpto2Decimals(data["Base God"])}
+                                    </h2>
+                                </div>
+                                <div tw="flex items-center ml-[80px]">
+                                    <img
+                                        tw="w-[80px] h-[80px] rounded-full"
+                                        src="https://assets.airstack.xyz/image/logo/8453/Q1I4YqH38O2uOFFg0u68YOhMaaDDBiLFx7p5rNSO9L1PHi4VADVMl8OMt/uDNEUF/small.png"
+                                    />
+                                    <p tw="pl-[20px] text-[30px]">
+                                        {balanceUpto2Decimals(data["Normie"])}
+                                    </p>
+                                </div>
+                            </div>
+                            <div tw="flex items-center justify-center">
+                                <div tw="flex items-center pl-[40px]">
+                                    <img
+                                        tw="w-[80px] h-[80px] rounded-full"
+                                        src="https://assets.airstack.xyz/image/logo/8453/4SB8Hx1kdOpRV6XWhno0M2KPp5uA9Ey77a//PsfDhBrI4AI+HXHM9FBr33iQ2eio/small.jpg"
+                                    />
+                                    <h2 tw="pl-[20px] text-[30px]">
+                                        {balanceUpto2Decimals(data["Toshi"])}
+                                    </h2>
+                                </div>
+                                <div tw="flex items-center ml-[80px] justify-center">
+                                    <img
+                                        tw="w-[80px] h-[80px] rounded-full"
+                                        src="https://assets.airstack.xyz/image/logo/8453/UFrxiWJtVYLmOG7Qc3XlihM66Za8OjuIJM0Izlqkg2hiBMGCI4zCI+1s1bQ2sRKk/small.png"
+                                    />
+                                    <h2 tw="pl-[20px] text-[30px]">
+                                        {balanceUpto2Decimals(data["doginme"])}
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div tw=" w-full pt-[50px] h-full flex pl-[80px]">
-                    <div tw="flex flex-col w-[40%]">
-                        <p tw="text-[#AEAEAE] text-[30px]">
-                            $DEGEN is the token you transacted the most. You
-                            have made 34 transactions
-                        </p>
-                        <p tw="text-[#AEAEAE] text-[30px]">
-                            $NORMIE is the token you transacted the most. You
-                            have made 34 transactions
+            ),
+            buttons: [
+                <Button action="post" target={{ pathname: "/what-bags" }}>
+                    Previous frame
+                </Button>,
+                <Button
+                    action="post"
+                    target={{
+                        pathname: "/persona-pre",
+                    }}
+                >
+                    Next →
+                </Button>,
+            ],
+        };
+    else
+        return {
+            image: (
+                <div tw="w-full h-full bg-black text-white flex flex-col items-start">
+                    <div tw="flex w-full">
+                        <div tw="ml-[80px] mt-[100px] border-4 border-[#AEAEAE] w-[50px]"></div>
+                        <div tw="ml-[10px] mt-[100px] border-4 border-[#AEAEAE] w-[50px]"></div>
+                        <div tw="ml-[10px] mt-[100px] border-4 border-white w-[50px]"></div>
+                        <div tw="ml-[10px] mt-[100px] border-4 border-[#AEAEAE] w-[50px]"></div>
+                        <div tw="ml-[10px] mt-[100px] border-4 border-[#AEAEAE] w-[50px]"></div>
+                    </div>
+                    <div tw=" w-full pt-[50px] h-full flex pl-[80px]">
+                        <p tw="text-[#AEAEAE] mr-[120px] ml-[40px]">
+                            Couldn't find much information
                         </p>
                     </div>
-                    <div tw="flex flex-col border-2 w-[500px] h-[70%] mb-[40px] ml-[40px] mr-[70px] border-dashed border-white">
-                        <div tw="flex items-center pl-[40px]">
-                            <img
-                                tw="w-[50px] h-[50px] rounded-full"
-                                src="https://assets.airstack.xyz/image/logo/8453/YJHU8e8eFBKEjHeu1z/w9xfYa2hi8kawEAZ4u8ZLTZENUduCoFOvZWjP+Ru2IEkL/small.png"
-                            />
-                            <p tw="pl-[20px] text-[30px]">
-                                {balanceUpto2Decimals(data["Degen"])}
-                            </p>
-                        </div>
-                        <div tw="flex items-center pl-[40px]">
-                            <img
-                                tw="w-[50px] h-[50px] rounded-full"
-                                src="https://assets.airstack.xyz/image/logo/8453/Kwt1lrnu48hVr84kcFMH3U6IRPPX0ekAfxGPEWIEzUomCanfgi/y8yYBFMCjnlrJ/small.png"
-                            />
-                            <h2 tw="pl-[20px] text-[30px]">
-                                {balanceUpto2Decimals(data["Base God"])}
-                            </h2>
-                        </div>
-                    </div>
                 </div>
-            </div>
-        ),
-        buttons: [
-            <Button action="post" target={{ pathname: "/" }}>
-                Previous frame
-            </Button>,
-        ],
-    };
+            ),
+            buttons: [
+                <Button action="post" target={{ pathname: "/" }}>
+                    Previous frame
+                </Button>,
+            ],
+        };
 });
 
 export const POST = handleRequest;
-

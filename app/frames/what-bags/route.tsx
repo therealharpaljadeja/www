@@ -15,10 +15,8 @@ const handleRequest = frames(async (ctx) => {
                 </div>
                 <div tw=" w-full h-full flex flex-col pl-[80px]">
                     <p tw="mt-[150px] mr-[120px] text-[#AEAEAE]">
-                        You demonstrated Diamond Hands this year.
-                    </p>
-                    <p tw="mr-[120px] text-[#AEAEAE]">
-                        Learn what #bags you held this year?
+                        You aped into the meme coin meta wif some sweet
+                        positions. Learn what meme coins you held this year?
                     </p>
                 </div>
             </div>

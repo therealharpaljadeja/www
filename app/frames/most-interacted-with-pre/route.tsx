@@ -15,8 +15,8 @@ const handleRequest = frames(async (ctx) => {
                 </div>
                 <div tw=" w-full h-full flex flex-col pl-[80px]">
                     <p tw="mt-[150px] mr-[120px] text-[#AEAEAE]">
-                        This past year, you were tipped $DEGEN many time by many
-                        people. However, who tipped the most? Let's find out!
+                        This past year, you interacted with a lot of tokens.
+                        Find out which token you interacted with the most!
                     </p>
                 </div>
             </div>
@@ -28,19 +28,11 @@ const handleRequest = frames(async (ctx) => {
             <Button
                 action="post"
                 target={{
-                    pathname: "/degen-tipper",
+                    pathname: "/most-interacted-with",
                 }}
             >
                 Find Out!
             </Button>,
-            // <Button
-            //     action="post"
-            //     target={{
-            //         pathname: "/next",
-            //     }}
-            // >
-            //     Next frame
-            // </Button>,
         ],
     };
 });
