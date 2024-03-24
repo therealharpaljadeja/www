@@ -27,10 +27,12 @@ const handleRequest = frames(async (ctx) => {
                         <div tw="ml-[10px] mt-[100px] border-4 border-[#AEAEAE] w-[50px]"></div>
                     </div>
                     <div tw=" w-full pt-[50px] h-full flex pl-[80px]">
-                        <img
-                            tw="w-[300px] h-[300px]"
-                            src={data.maxInteractionsTokenDetails.logo}
-                        />
+                        {data.maxInteractionsTokenDetails.logo && (
+                            <img
+                                tw="w-[300px] h-[300px]"
+                                src={data.maxInteractionsTokenDetails.logo}
+                            />
+                        )}
                         <p tw="text-[#AEAEAE] mr-[120px] ml-[40px]">
                             You interacted with $
                             {data.maxInteractionsTokenDetails.name} the most,

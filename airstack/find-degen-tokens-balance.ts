@@ -78,12 +78,16 @@ export default async function findDegenTokenBalances(address: string) {
 
             let tokenBalances = data.TokenBalances as TokenBalances;
 
-            let tokenBalance = tokenBalances.TokenBalance;
+            if (tokenBalances) {
+                let tokenBalance = tokenBalances.TokenBalance;
 
-            for (let i = 0; i < tokenBalance.length; i++) {
-                let tokenDetail = tokenBalance[i];
-                let { amount, token } = tokenDetail;
-                balances[token.name] = formatEther(BigInt(amount));
+                if (tokenBalance) {
+                    for (let i = 0; i < tokenBalance.length; i++) {
+                        let tokenDetail = tokenBalance[i];
+                        let { amount, token } = tokenDetail;
+                        balances[token.name] = formatEther(BigInt(amount));
+                    }
+                }
             }
         }
     } catch (e) {
