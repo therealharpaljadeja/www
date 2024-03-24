@@ -30,7 +30,7 @@ const handleRequest = frames(async (ctx) => {
             </div>
         ),
         buttons: [
-            <Button action="post" target={{ pathname: "/degen-tips" }}>
+            <Button action="post" target={{ pathname: "/degen-tippper" }}>
                 ← Previous
             </Button>,
             <Button

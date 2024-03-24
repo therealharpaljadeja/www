@@ -24,7 +24,7 @@ const handleRequest = frames(async (ctx) => {
             </div>
         ),
         buttons: [
-            <Button action="post" target={{ pathname: "/" }}>
+            <Button action="post" target={{ pathname: "/last-used" }}>
                 ← Previous
             </Button>,
             <Button
