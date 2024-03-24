@@ -17,8 +17,8 @@ const handleRequest = frames(async (ctx) => {
                     <h2>www</h2>
                     <p tw="text-[#AEAEAE] mr-[120px]">
                         Warpcast Wallet Wrapped is your yearly recap of on-chain
-                        actions. Find out if you are Degen, NotSoDegen,
-                        Hibernator or Noob.
+                        actions. Find out if you are Futourist, Gigaheart,
+                        Memelancholic or Vibe Seeker.
                     </p>
                 </div>
             </div>
