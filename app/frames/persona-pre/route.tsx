@@ -32,7 +32,7 @@ const handleRequest = frames(async (ctx) => {
                     pathname: "/persona",
                 }}
             >
-                Next →
+                Find Out Persona →
             </Button>,
         ],
     };
