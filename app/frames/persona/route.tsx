@@ -10,12 +10,9 @@ type Persona =
     | "Vibe Seeker"
     | undefined;
 
-const reducer: FrameReducer<{ persona: string }> = (state, action) => ({
-    persona: "",
-});
-
 const handleRequest = frames(async (ctx) => {
-    let persona: Persona;
+    let persona: any = "Vibe Seeker";
+
     switch (persona) {
         case "Futourist":
             return {
@@ -85,24 +82,11 @@ const handleRequest = frames(async (ctx) => {
                     </Button>,
                 ],
             };
+        default:
+            return {
+                image: "sadkasd",
+            };
     }
-
-    return {
-        image: "asda",
-        buttons: [
-            <Button action="post" target={{ pathname: "/" }}>
-                ← Previous
-            </Button>,
-            <Button
-                action="post"
-                target={{
-                    pathname: "/persona",
-                }}
-            >
-                Next →
-            </Button>,
-        ],
-    };
 });
 
 export const GET = handleRequest;
