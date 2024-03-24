@@ -1,10 +1,10 @@
 /* eslint-disable react/jsx-key */
 import { Button } from "frames.js/next";
 import { frames } from "../frames";
-import findTokenInteractions from "@/airstack/find-most-interacted-token";
+import FindLastUsedToken from "@/airstack/find-not-recent-used-token";
 
 const handleRequest = frames(async (ctx) => {
-    let data = await findTokenInteractions(
+    let data = await FindLastUsedToken(
         "0x22b2DD2CFEF2018D15543c484aceF6D9B5435863"
     );
 
@@ -21,12 +21,10 @@ const handleRequest = frames(async (ctx) => {
                 <div tw=" w-full pt-[50px] h-full flex pl-[80px]">
                     <img
                         tw="w-[300px] h-[300px]"
-                        src={data.maxInteractionsTokenDetails.logo}
+                        src="https://avatars.githubusercontent.com/u/26248903?v=4"
                     />
                     <p tw="text-[#AEAEAE] mr-[120px] ml-[40px]">
-                        You interacted with $
-                        {data.maxInteractionsTokenDetails.name} the most, you
-                        did {data.maxInteractions} interactions!
+                        Its been  {data.timeSinceLastUsed} hours you have interacted with ${data.name}!
                     </p>
                 </div>
             </div>
@@ -38,7 +36,7 @@ const handleRequest = frames(async (ctx) => {
             <Button
                 action="post"
                 target={{
-                    pathname: "/last-used",
+                    pathname: "/what-bags",
                 }}
             >
                 Find Bags
