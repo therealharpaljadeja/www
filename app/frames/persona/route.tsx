@@ -1,17 +1,9 @@
 /* eslint-disable react/jsx-key */
 import { Button } from "frames.js/next";
 import { frames } from "../frames";
-import { FrameReducer } from "frames.js/next/types";
-
-type Persona =
-    | "Futourist"
-    | "Memelancholic"
-    | "Gigaheart"
-    | "Vibe Seeker"
-    | undefined;
 
 const handleRequest = frames(async (ctx) => {
-    let persona: any = "Vibe Seeker";
+    let persona: any = ctx.searchParams["persona"];
 
     switch (persona) {
         case "Futourist":
@@ -25,6 +17,7 @@ const handleRequest = frames(async (ctx) => {
                         action="post"
                         target={{
                             pathname: "/persona-mint",
+                            query: { persona },
                         }}
                     >
                         Mint Futourist NFT →
@@ -42,6 +35,7 @@ const handleRequest = frames(async (ctx) => {
                         action="post"
                         target={{
                             pathname: "/persona-mint",
+                            query: { persona },
                         }}
                     >
                         Mint Memelancholic NFT →
@@ -59,6 +53,7 @@ const handleRequest = frames(async (ctx) => {
                         action="post"
                         target={{
                             pathname: "/persona-mint",
+                            query: { persona },
                         }}
                     >
                         Mint Gigaheart NFT →
@@ -76,6 +71,7 @@ const handleRequest = frames(async (ctx) => {
                         action="post"
                         target={{
                             pathname: "/persona-mint",
+                            query: { persona },
                         }}
                     >
                         Mint Vibe Seeker NFT →
@@ -84,7 +80,7 @@ const handleRequest = frames(async (ctx) => {
             };
         default:
             return {
-                image: "sadkasd",
+                image: "How did you reach here?",
             };
     }
 });

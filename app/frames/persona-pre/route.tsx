@@ -2,6 +2,8 @@
 import { Button } from "frames.js/next";
 import { frames } from "../frames";
 
+const personas = ["Futourist", "Vibe Seeker", "Memelancholic", "Gigaheart"];
+
 const handleRequest = frames(async (ctx) => {
     return {
         image: (
@@ -34,6 +36,9 @@ const handleRequest = frames(async (ctx) => {
                 action="post"
                 target={{
                     pathname: "/persona",
+                    query: {
+                        persona: personas[Math.floor(Math.random() * 4)],
+                    },
                 }}
             >
                 Find Out Persona →
