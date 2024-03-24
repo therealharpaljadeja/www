@@ -1,8 +1,13 @@
 /* eslint-disable react/jsx-key */
 import { Button } from "frames.js/next";
 import { frames } from "../frames";
+import findTokenInteractions from "@/airstack/find-most-interacted-token";
 
 const handleRequest = frames(async (ctx) => {
+    let data = await findTokenInteractions(
+        "0x22b2DD2CFEF2018D15543c484aceF6D9B5435863"
+    );
+
     return {
         image: (
             <div tw="w-full h-full bg-black text-white flex flex-col items-start">
@@ -16,11 +21,12 @@ const handleRequest = frames(async (ctx) => {
                 <div tw=" w-full pt-[50px] h-full flex pl-[80px]">
                     <img
                         tw="w-[300px] h-[300px]"
-                        src="https://wrpcd.net/cdn-cgi/image/fit=contain,f=auto,w=168/https%3A%2F%2Fi.imgur.com%2FRYLwxg1.jpg"
+                        src={data.maxInteractionsTokenDetails.logo}
                     />
                     <p tw="text-[#AEAEAE] mr-[120px] ml-[40px]">
-                        This past year, you were tipped $DEGEN many time by many
-                        people. However, who tipped the most? Let's find out!
+                        You interacted with $
+                        {data.maxInteractionsTokenDetails.name} the most, you
+                        did {data.maxInteractions} interactions!
                     </p>
                 </div>
             </div>
