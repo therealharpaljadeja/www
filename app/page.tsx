@@ -5,7 +5,7 @@ import { vercelURL } from "@/utils";
 export async function generateMetadata(): Promise<Metadata> {
     return {
         title: "Warpcast and Wallet Wrapped",
-        description: "This is Warpcast and Wallet Wrapped",
+        description: vercelURL(),
         other: {
             ...(await fetchMetadata(
                 new URL("/frames", vercelURL() || "http://localhost:3000")
