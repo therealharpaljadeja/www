@@ -7,7 +7,10 @@ export async function generateMetadata(): Promise<Metadata> {
         description: "This is Warpcast and Wallet Wrapped",
         other: {
             ...(await fetchMetadata(
-                new URL("/frames", "http://localhost:3000")
+                new URL(
+                    "/frames",
+                    "https://www-psi-six.vercel.app" || "http://localhost:3000"
+                )
             )),
         },
     };
