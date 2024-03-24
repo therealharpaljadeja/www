@@ -16,7 +16,7 @@ const handleRequest = frames(async (ctx) => {
                 target={getTokenUrl({
                     address: "0xf0ca21391e76ee5e8b6b253c064c7e3e20d8058e",
                     chain: zora,
-                    tokenId: "1",
+                    tokenId: "premint-4",
                 })}
             >
                 Mint
