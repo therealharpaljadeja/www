@@ -15,5 +15,6 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Home() {
+    alert(vercelURL());
     return <div>Warpcast and Wallet Wrapped</div>;
 }
